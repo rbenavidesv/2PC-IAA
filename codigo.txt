@@ -1,0 +1,19 @@
+        // write your code here
+        System.out.println("primer algoritmo en java");
+       //MLAlgoritmoSMOreg mlsmoreg = new MLAlgoritmoSMOreg("C:\\Program Files\\Weka-3-8-5\\data\\iris.arff");
+        DataSource ds = new DataSource("file:///C:/Program%20Files/Weka-3-8-5/data/iris.arff");
+        Instances ins = ds.getDataSet();
+        ins.setClassIndex(ins.numAttributes()-1);
+        NaiveBayes nb = new NaiveBayes();
+        nb.buildClassifier(ins);
+        System.out.println(nb.getCapabilities().toString());
+
+        SMO svm = new SMO();
+        svm.buildClassifier(ins);
+        System.out.println(svm.getCapabilities().toString());
+
+        String[] options = new String[1];
+        options[0]="-U";
+        J48 tree = new J48();
+        tree.buildClassifier(ins);
+        System.out.println(tree.getCapabilities().toString());
